@@ -1,0 +1,4 @@
+interface:
+  display_name: "Research Cold Emailing"
+  short_description: "Research faculty and draft evidence-backed cold emails"
+  default_prompt: "Use $research-cold-emailing to research a professor and prepare a source-linked, factual student cold email without sending it."

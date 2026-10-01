@@ -1,0 +1,14 @@
+.DS_Store
+.env
+.env.*
+.idea/
+.vscode/
+.venv/
+__pycache__/
+*.eml
+*.msg
+*.pdf
+student-profile.md
+private/
+drafts/
+outputs/
