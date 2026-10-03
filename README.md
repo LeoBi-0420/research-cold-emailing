@@ -26,7 +26,9 @@ Make a private copy of the [student profile example](research-cold-emailing/refe
 
 ```bash
 mkdir -p ~/.codex/research-cold-emailing
-cp -n ~/.codex/skills/research-cold-emailing/references/student-profile.example.md ~/.codex/research-cold-emailing/student-profile.md
+cp -n \
+  ~/.codex/skills/research-cold-emailing/references/student-profile.example.md \
+  ~/.codex/research-cold-emailing/student-profile.md
 ```
 
 Open `~/.codex/research-cold-emailing/student-profile.md` in your editor. Fill in only facts you have checked and want used in outreach. `cp -n` will not overwrite an existing profile. Keep your completed profile, résumé, transcript, phone number, personal email, mail export, API key, and outreach history out of public repositories.
