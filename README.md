@@ -4,6 +4,41 @@ An open-source Codex skill for researching university faculty and writing concis
 
 It is designed for the difficult part of cold outreach: finding a real intellectual connection without inventing familiarity, overstating the student's background, or pretending an old publication is a current opening.
 
+## Install (macOS/Linux)
+
+You need [Codex](https://developers.openai.com/codex) and Git. Copy this **entire block** into a terminal; it downloads the public repository, installs the nested skill folder, and displays the installed `SKILL.md` path:
+
+```bash
+git clone --depth 1 https://github.com/LeoBi-0420/research-cold-emailing.git
+cd research-cold-emailing
+mkdir -p ~/.codex/skills
+cp -R research-cold-emailing ~/.codex/skills/
+ls ~/.codex/skills/research-cold-emailing/SKILL.md
+```
+
+The last line should display a path ending in `research-cold-emailing/SKILL.md`. If it does not, the installation did not finish. Restart Codex if the skill is not available in your current session. This first-time block assumes you are in a directory that does not already contain a folder named `research-cold-emailing`.
+
+The repository and skill folder have the same name: the skill is the **inner** `research-cold-emailing/` folder, which directly contains `SKILL.md`. The repository also contains examples, tests, and release checks; those do not need to be installed.
+
+## First use
+
+Make a private copy of the [student profile example](research-cold-emailing/references/student-profile.example.md), outside the cloned repository:
+
+```bash
+mkdir -p ~/.codex/research-cold-emailing
+cp -n ~/.codex/skills/research-cold-emailing/references/student-profile.example.md ~/.codex/research-cold-emailing/student-profile.md
+```
+
+Open `~/.codex/research-cold-emailing/student-profile.md` in your editor. Fill in only facts you have checked and want used in outreach. `cp -n` will not overwrite an existing profile. Keep your completed profile, résumé, transcript, phone number, personal email, mail export, API key, and outreach history out of public repositories.
+
+Then ask Codex:
+
+```text
+Use $research-cold-emailing to research Professor Jane Doe and draft a first-contact email. Use my verified profile at ~/.codex/research-cold-emailing/student-profile.md. Return the research brief, sources, draft, and quality score. Do not create or send mail.
+```
+
+Replace the professor name with a real person. You can also supply their official faculty page. If you have not filled in a profile yet, give Codex your verified background in the request; the skill must ask for missing facts instead of inventing them. Research and text drafting do not require a mail connection. Creating drafts in a mail account or sending requires an available mail tool and a separate, explicit instruction.
+
 ## What it does
 
 - resolves a professor's identity and official contact information;
@@ -42,34 +77,7 @@ Current opportunity evidence: none found
 
 No public evidence of an opening does not prohibit contact. It changes the language from an assertion to an exploratory question. Sending more well-researched inquiries may reveal opportunities that were never posted, but volume never upgrades the evidence recorded for an individual professor.
 
-## Install
-
-Clone or download this repository. From the repository root, copy the nested skill directory into your Codex skills folder:
-
-```bash
-mkdir -p ~/.codex/skills
-cp -R research-cold-emailing ~/.codex/skills/
-```
-
-The directory being copied is the one that directly contains `SKILL.md`. Restart Codex if the skill does not appear immediately.
-
-The package follows the same progressive-disclosure pattern used by mature Codex skills: a concise `SKILL.md`, UI metadata in `agents/openai.yaml`, and task-specific material under `references/`. See the [OpenAI Plugins repository](https://github.com/openai/plugins) and the [Codex skill creator](https://github.com/openai/codex/blob/main/codex-rs/skills/src/assets/samples/skill-creator/SKILL.md) for current packaging examples.
-
-## Configure a student profile
-
-Copy `research-cold-emailing/references/student-profile.example.md` to a private location outside this repository. Complete only facts the student has reviewed and approved.
-
-Do not commit a completed profile, résumé, transcript, phone number, personal email, mail export, API key, or outreach history to a public repository.
-
-The profile is deliberately separate from the skill. The public skill contains the method; the private profile contains the student's identity, evidence, preferences, and constraints.
-
-## Quick start
-
-Research and draft without touching a mail account:
-
-```text
-Use $research-cold-emailing to research Professor Jane Doe and draft a first-contact email. Use my verified profile at /absolute/path/to/student-profile.md. Return the research brief, sources, draft, and quality score. Do not create or send mail.
-```
+## More ways to use it
 
 Review an existing draft:
 
@@ -84,6 +92,8 @@ Use $research-cold-emailing to research up to 10 professors from this official d
 ```
 
 Mail-account actions require a connected mail tool and an explicit instruction. A research or drafting request never authorizes creating mail drafts or sending.
+
+The package keeps the method in `SKILL.md` and task-specific material under `references/`. The public skill contains the method; the private profile contains the student's identity, evidence, preferences, and constraints.
 
 ## How the workflow is organized
 
