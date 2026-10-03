@@ -36,7 +36,11 @@ Open `~/.codex/research-cold-emailing/student-profile.md` in your editor. Fill i
 Then ask Codex:
 
 ```text
-Use $research-cold-emailing to research Professor Jane Doe and draft a first-contact email. Use my verified profile at ~/.codex/research-cold-emailing/student-profile.md. Return the research brief, sources, draft, and quality score. Do not create or send mail.
+Use $research-cold-emailing to research Professor Jane Doe.
+Draft a first-contact email using my verified profile at
+~/.codex/research-cold-emailing/student-profile.md.
+Return the research brief, sources, draft, and quality score.
+Do not create or send mail.
 ```
 
 Replace the professor name with a real person. You can also supply their official faculty page. If you have not filled in a profile yet, give Codex your verified background in the request; the skill must ask for missing facts instead of inventing them. Research and text drafting do not require a mail connection. Creating drafts in a mail account or sending requires an available mail tool and a separate, explicit instruction.
